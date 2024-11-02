@@ -1,11 +1,37 @@
-// pages/resume.js
+// pages/resume.tsx
+
+interface Skill {
+  category: string;
+  skills: string[];
+}
+
+interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  period: string;
+  responsibilities: string[];
+  technologies?: string[];
+}
+
+interface Education {
+  degree: string;
+  institution: string;
+  period: string;
+}
+
+interface Award {
+  title: string;
+  location: string;
+  description: string;
+}
 import Link from "next/link";
 import React from "react";
 import PrintButton from "./PrintButton";
 
 export default function Resume() {
   // Skills Data
-  const skillsData = [
+  const skillsData: Skill[] = [
     {
       category: "Web Development",
       skills: [
@@ -53,7 +79,7 @@ export default function Resume() {
   ];
 
   // Experience Data
-  const experienceData = [
+  const experienceData: Experience[] = [
     {
       title: "Full Stack Software Engineer",
       company: "INT6 Tech",
@@ -110,7 +136,7 @@ export default function Resume() {
   ];
 
   // Education Data
-  const educationData = [
+  const educationData: Education[] = [
     {
       degree: "B.S. in Computer Science",
       institution: "Federal University of Rio Grande do Sul (UFRGS)",
@@ -137,7 +163,7 @@ export default function Resume() {
   ];
 
   // Awards Data
-  const awardsData = [
+  const awardsData: Award[] = [
     {
       title: "Brazilian Science and Technology Exhibit (Mostratec)",
       location: "Novo Hamburgo, 2019 Edition",
@@ -241,7 +267,7 @@ export default function Resume() {
  * Props:
  * - skillsData: Array of skill categories with their respective skills
  */
-function SkillsSection({ skillsData }) {
+function SkillsSection({ skillsData }: { skillsData: Skill[] }) {
   return (
     <section className="space-y-4">
       <h2 className="text-2xl font-semibold mb-4">Skills</h2>
@@ -264,7 +290,7 @@ function SkillsSection({ skillsData }) {
  * - category: The category of skills (e.g., Web Development)
  * - skills: Array of skills under the category
  */
-function SkillItem({ category, skills }) {
+function SkillItem({ category, skills }: { category: string; skills: string[] }) {
   return (
     <div>
       <h4 className="text-xl font-semibold mb-2">{category}</h4>
@@ -282,7 +308,7 @@ function SkillItem({ category, skills }) {
  * Props:
  * - experienceData: Array of experience entries
  */
-function ExperienceSection({ experienceData }) {
+function ExperienceSection({ experienceData }: { experienceData: Experience[] }) {
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">Experience</h2>
@@ -312,7 +338,7 @@ function ExperienceSection({ experienceData }) {
  * - period: Duration of employment
  * - responsibilities: Array of responsibilities or achievements
  */
-function ExperienceItem({ title, company, location, period, responsibilities, technologies }) {
+function ExperienceItem({ title, company, location, period, responsibilities, technologies }: Experience) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{title}</h4>
@@ -346,7 +372,7 @@ function ExperienceItem({ title, company, location, period, responsibilities, te
  * Props:
  * - educationData: Array of education entries
  */
-function EducationSection({ educationData }) {
+function EducationSection({ educationData }: { educationData: Education[] }) {
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">Education</h2>
@@ -371,7 +397,7 @@ function EducationSection({ educationData }) {
  * - institution: Institution name
  * - period: Duration of study
  */
-function EducationItem({ degree, institution, period }) {
+function EducationItem({ degree, institution, period }: Education) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{degree}</h4>
@@ -386,7 +412,7 @@ function EducationItem({ degree, institution, period }) {
  * Props:
  * - awardsData: Array of awards entries
  */
-function AwardsSection({ awardsData }) {
+function AwardsSection({ awardsData }: { awardsData: Award[] }) {
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">Awards</h2>
@@ -411,7 +437,7 @@ function AwardsSection({ awardsData }) {
  * - location: Award location and edition
  * - description: Award description or achievement
  */
-function AwardItem({ title, location, description }) {
+function AwardItem({ title, location, description }: Award) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{title}</h4>
