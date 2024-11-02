@@ -1,6 +1,7 @@
 // pages/resume.js
 import Link from "next/link";
 import React from "react";
+import PrintButton from "./PrintButton";
 
 export default function Resume() {
   // Skills Data
@@ -37,7 +38,7 @@ export default function Resume() {
         "Linux binaries",
         "IOT Devices (Mainly GPON ONTs)",
         "Linux (Ubuntu, Debian, Alpine)",
-        "Shell scripting (Bash, Ash, Zsh, Fish)",
+        "Shell scripting (POSIX, Fish)",
       ],
     },
     {
@@ -151,10 +152,6 @@ export default function Resume() {
     },
   ];
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <main className="flex flex-col items-center min-h-screen bg-gradient-to-r from-purple-700 to-indigo-800 text-white p-8">
       <h1 className="text-4xl font-bold mb-2">Rodrigo Guimarães Ourique</h1>
@@ -231,12 +228,7 @@ export default function Resume() {
         >
           Back to Home
         </Link>
-        <button
-          //onClick={handlePrint}
-          className="px-6 py-3 bg-white text-indigo-600 rounded-full font-semibold hover:bg-indigo-100 transition-colors"
-        >
-          Export to PDF
-        </button>
+        <PrintButton />
       </div>
     </main>
   );
