@@ -93,7 +93,7 @@ export default function Resume() {
         "Maintained a full-stack web application for complete L2 and L3 administration of GPON infrastructure, massive network analysis, and determination of the mobile app’s provisioning pipelines.",
         "Led a team of developers on the implementation of automated provisioning and management pipelines for various CPEs (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
         "Developed multiple microservices for communication with different components of GPON infrastructure and mobile App.",
-        "Reverse engineered a various networking hardware for better integration with our automated management services.",
+        "Reverse-engineered large ammounts of networking hardware for better integration with automated management services.",
       ],
       technologies: ["JavaScript", "NodeJS", "React", "React-Native", "Kotlin", "Ruby", "Python", "Binary Reverse Engineering", "Linux", "Docker", "Docker Compose", "Networking", "Jira"],
     },
@@ -179,7 +179,7 @@ export default function Resume() {
   ];
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-gradient-to-r from-purple-700 to-indigo-800 text-white p-8">
+    <main className="flex flex-col items-center min-h-screen bg-gradient-to-r from-blue-700 to-purple-800 text-white p-8">
       <h1 className="text-4xl font-bold mb-2">Rodrigo Guimarães Ourique</h1>
       <p className="text-xl mb-1">
         Full Stack Software Engineer at Int6Tech
@@ -239,9 +239,9 @@ export default function Resume() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Languages</h2>
           <div className="flex flex-wrap gap-4">
-            <p className="text-indigo-200">Portuguese - Native</p>
-            <p className="text-indigo-200">English - Fluent</p>
-            <p className="text-indigo-200">Spanish - Intermediate</p>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">Portuguese - Native</span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">Spanish - Intermediate</span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">English - Fluent</span>
           </div>
         </section>
       </div>
