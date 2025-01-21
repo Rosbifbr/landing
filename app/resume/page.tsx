@@ -9,15 +9,36 @@ interface Experience {
   title: string;
   company: string;
   location: string;
-  period: string;
+  startDate: Date;
+  endDate: Date | null; // null for current position
+  about: string;
   responsibilities: string[];
   technologies?: string[];
+}
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+}
+
+function calculateDuration(start: Date, end: Date | null): string {
+  const endDate = end || new Date();
+  const months = (endDate.getFullYear() - start.getFullYear()) * 12 +
+    (endDate.getMonth() - start.getMonth());
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  const yearText = years > 0 ? `${years} ${years === 1 ? 'year' : 'years'}` : '';
+  const monthText = remainingMonths > 0 ? `${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}` : '';
+
+  return [yearText, monthText].filter(Boolean).join(' ');
 }
 
 interface Education {
   degree: string;
   institution: string;
-  period: string;
+  startDate: Date;
+  endDate: Date | null; // null for current education
 }
 
 interface Award {
@@ -84,16 +105,16 @@ export default function Resume() {
       title: "Full Stack Software Engineer",
       company: "INT6 Tech",
       location: "Porto Alegre",
-      period: "December 2021 - Present",
+      startDate: new Date(2021, 11), // December 2021
+      endDate: null, // Present
+      about: "Largest South American telecom automation company",
       responsibilities: [
-        "Developed a large-scale Android application for automated CPE deployment, GPON installation quality control, and WiFi frequencies mapping.",
-        "Implemented custom JavaScript compiler/processor microservice with WebDriver that is dynamically downloaded and executed by the mobile app.",
-        "Refactored a large Kotlin codebase into OTA-Upgradable React Native Views.",
-        "Maintained and extended existing Kotlin services interfacing with native Android APIs.",
-        "Maintained a full-stack web application for complete L2 and L3 administration of GPON infrastructure, massive network analysis, and determination of the mobile app’s provisioning pipelines.",
-        "Led a team of developers on the implementation of automated provisioning and management pipelines for various CPEs (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
-        "Developed multiple microservices for communication with different components of GPON infrastructure and mobile App.",
+        "Developed a large React-Native Android application for automated GPON, EPON and L3 CPE deployment, installation quality control, and WiFi frequencies mapping.",
+        "Implemented custom JavaScript compiler/processor microservice for dynamically run and updated WebDriver.",
+        "Led a team of developers on the implementation of automated provisioning pipelines for equipment of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
         "Reverse-engineered large ammounts of networking hardware for better integration with automated management services.",
+        "Maintained a full-stack web application for complete L2 and L3 administration of GPON infrastructure, massive network analysis, and determination of device provisioning pipelines.",
+        "Maintained and expanded analytics system for TR-098 and 369 bulk data processing and massive failure classification and detection",
       ],
       technologies: ["JavaScript", "NodeJS", "React", "React-Native", "Kotlin", "Ruby", "Python", "Binary Reverse Engineering", "Linux", "Docker", "Docker Compose", "Networking", "Jira"],
     },
@@ -101,7 +122,9 @@ export default function Resume() {
       title: "Software Engineering Intern",
       company: "INT6 Tech",
       location: "Porto Alegre",
-      period: "April 2021 - December 2021",
+      startDate: new Date(2021, 3), // April 2021
+      endDate: new Date(2021, 11), // December 2021
+      about: "Largest South American telecom automation company",
       responsibilities: [
         "Developed modules for a large-scale Android application that conducts automated provisioning routines for various CPEs.",
         "Worked with Kotlin and JavaScript (Vanilla, NodeJS).",
@@ -113,7 +136,9 @@ export default function Resume() {
       company:
         "Federal Institute of Education, Science and Technology of Rio Grande do Sul (IFRS)",
       location: "Osório",
-      period: "September 2020 - September 2021",
+      startDate: new Date(2020, 8), // September 2020
+      endDate: new Date(2021, 8), // September 2021
+      about: "High-School scientific initiation",
       responsibilities: [
         "Developed a full-stack COVID-19 patient, test, and vaccine management solution for regional health departments and hospitals, producing periodic reports for statistical analysis by higher administrative instances.",
         "Integrated web backend with a mobile app developed in React Native.",
@@ -126,7 +151,9 @@ export default function Resume() {
       company:
         "Federal Institute of Education, Science and Technology of Rio Grande do Sul (IFRS)",
       location: "Osório",
-      period: "April 2019 - December 2019",
+      startDate: new Date(2019, 3), // April 2019
+      endDate: new Date(2019, 11), // December 2019
+      about: "High-School scientific initiation",
       responsibilities: [
         "Developed a 3D-Printed digital key locker integrated with a local database and computer, with user identification done through RFID tags.",
         "Competed at the Brazilian Science and Technology Fair and was awarded 3rd place in the category of Electrical Engineering.",
@@ -140,25 +167,29 @@ export default function Resume() {
     {
       degree: "B.S. in Computer Science",
       institution: "Federal University of Rio Grande do Sul (UFRGS)",
-      period: "May 2023 - Present",
+      startDate: new Date(2023, 4), // May 2023
+      endDate: null, // Present
     },
     {
       degree: "B.S. in Computer Science",
       institution:
         "Pontifical Catholic University of Rio Grande do Sul (PUCRS)",
-      period: "August 2022 - January 2023 (1 semester)",
+      startDate: new Date(2022, 7), // August 2022
+      endDate: new Date(2023, 1), // January 2023
     },
     {
       degree: "B.S. in Computer Science",
       institution: "University of Vale do Rio dos Sinos (Unisinos)",
-      period: "February 2022 - August 2022 (1 semester)",
+      startDate: new Date(2022, 1), // February 2022
+      endDate: new Date(2022, 7), // August 2022
     },
     {
       degree:
         "High School with Associate Degree in Information Technology",
       institution:
         "Federal Institute of Education, Science and Technology of Rio Grande do Sul (IFRS)",
-      period: "February 2018 - November 2021 (4 years)",
+      startDate: new Date(2018, 1), // February 2018
+      endDate: new Date(2021, 11), // November 2021
     },
   ];
 
@@ -318,8 +349,10 @@ function ExperienceSection({ experienceData }: { experienceData: Experience[] })
             key={index}
             title={exp.title}
             company={exp.company}
+            about={exp.about}
             location={exp.location}
-            period={exp.period}
+            startDate={exp.startDate}
+            endDate={exp.endDate}
             responsibilities={exp.responsibilities}
             technologies={exp.technologies}
           />
@@ -338,12 +371,24 @@ function ExperienceSection({ experienceData }: { experienceData: Experience[] })
  * - period: Duration of employment
  * - responsibilities: Array of responsibilities or achievements
  */
-function ExperienceItem({ title, company, location, period, responsibilities, technologies }: Experience) {
+function ExperienceItem({ title, company, location, startDate, endDate, responsibilities, technologies, about }: Experience) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{title}</h4>
-      <p className="text-indigo-100">{period}</p>
-      <p className="text-indigo-200">{company}, {location}</p>
+      <p className="text-indigo-100">
+        {formatDate(startDate)} - {endDate ? formatDate(endDate) : 'Present'} · {calculateDuration(startDate, endDate)}
+      </p>
+      <div className="flex items-center gap-2">
+        <p className="text-indigo-200">{company}, {location}</p>
+        <div className="group relative">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-300 cursor-help" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+          </svg>
+          <div className="absolute hidden group-hover:block bg-indigo-800 text-white text-sm px-3 py-2 rounded-lg w-64 -left-32 mt-2">
+            {about}
+          </div>
+        </div>
+      </div>
       <div className="space-y-3 mt-4">
         {responsibilities.map((item, index) => (
           <p key={index} className="text-indigo-100 pl-4 border-l-2 border-indigo-300">
@@ -382,7 +427,8 @@ function EducationSection({ educationData }: { educationData: Education[] }) {
             key={index}
             degree={edu.degree}
             institution={edu.institution}
-            period={edu.period}
+            startDate={edu.startDate}
+            endDate={edu.endDate}
           />
         ))}
       </div>
@@ -397,11 +443,13 @@ function EducationSection({ educationData }: { educationData: Education[] }) {
  * - institution: Institution name
  * - period: Duration of study
  */
-function EducationItem({ degree, institution, period }: Education) {
+function EducationItem({ degree, institution, startDate, endDate }: Education) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{degree}</h4>
-      <p className="text-indigo-100">{period}</p>
+      <p className="text-indigo-100">
+        {formatDate(startDate)} - {endDate ? formatDate(endDate) : 'Present'} · {calculateDuration(startDate, endDate)}
+      </p>
       <p className="text-indigo-200">{institution}</p>
     </div>
   );
