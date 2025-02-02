@@ -270,9 +270,9 @@ export default function Resume() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Languages</h2>
           <div className="flex flex-wrap gap-4">
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">Portuguese - Native</span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">Spanish - Intermediate</span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">English - Fluent</span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">🇧🇷 Portuguese - Native</span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">🇪🇸 Spanish - Intermediate</span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">🇺🇸 English - Fluent</span>
           </div>
         </section>
       </div>
