@@ -1,4 +1,6 @@
-// pages/resume.tsx
+import Link from "next/link";
+import React from "react";
+import PrintButton from "./PrintButton";
 
 interface Skill {
   category: string;
@@ -17,21 +19,26 @@ interface Experience {
 }
 
 function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 
 function calculateDuration(start: Date, end: Date | null): string {
   const endDate = end || new Date();
-  const months = (endDate.getFullYear() - start.getFullYear()) * 12 +
+  const months =
+    (endDate.getFullYear() - start.getFullYear()) * 12 +
     (endDate.getMonth() - start.getMonth());
 
   const years = Math.floor(months / 12);
   const remainingMonths = months % 12;
 
-  const yearText = years > 0 ? `${years} ${years === 1 ? 'year' : 'years'}` : '';
-  const monthText = remainingMonths > 0 ? `${remainingMonths} ${remainingMonths === 1 ? 'month' : 'months'}` : '';
+  const yearText =
+    years > 0 ? `${years} ${years === 1 ? "year" : "years"}` : "";
+  const monthText =
+    remainingMonths > 0
+      ? `${remainingMonths} ${remainingMonths === 1 ? "month" : "months"}`
+      : "";
 
-  return [yearText, monthText].filter(Boolean).join(' ');
+  return [yearText, monthText].filter(Boolean).join(" ");
 }
 
 interface Education {
@@ -46,12 +53,9 @@ interface Award {
   location: string;
   description: string;
 }
-import Link from "next/link";
-import React from "react";
-import PrintButton from "./PrintButton";
 
 export default function Resume() {
-  // Skills Data
+  // Skills Data (Removed redundant "Web (APIs, JavaScript)")
   const skillsData: Skill[] = [
     {
       category: "Web Development",
@@ -64,7 +68,6 @@ export default function Resume() {
         "MongoDB",
         "SQL",
         "Docker, Docker Compose",
-        "Web (APIs, JavaScript)",
       ],
     },
     {
@@ -109,14 +112,28 @@ export default function Resume() {
       endDate: null, // Present
       about: "Largest South American telecom automation company",
       responsibilities: [
-        "Developed a large React-Native Android application for automated GPON, EPON and L3 CPE deployment, installation quality control, and WiFi frequencies mapping.",
-        "Implemented custom JavaScript compiler/processor microservice for dynamically run and updated WebDriver.",
-        "Led a team of developers on the implementation of automated provisioning pipelines for equipment of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
-        "Reverse-engineered large ammounts of networking hardware for better integration with automated management services.",
-        "Maintained a full-stack web application for complete L2 and L3 administration of GPON infrastructure, massive network analysis, and determination of device provisioning pipelines.",
-        "Maintained and expanded analytics system for TR-098 and 369 bulk data processing and massive failure classification and detection",
+        "Developed a React-Native Android app for automated GPON, EPON, and L3 CPE deployment, quality control, and WiFi frequency mapping.",
+        "Implemented a custom JavaScript compiler/processor microservice for dynamic WebDriver updates.",
+        "Led a team of developers to implement automated provisioning pipelines for multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
+        "Reverse-engineered significant amounts of networking hardware for improved integration with management services.",
+        "Maintained a full-stack web app for L2/L3 administration of GPON infrastructure, network analysis, and provisioning pipeline determination.",
+        "Enhanced analytics for TR-098/369 bulk data processing and failure classification.",
       ],
-      technologies: ["JavaScript", "NodeJS", "React", "React-Native", "Kotlin", "Ruby", "Python", "Binary Reverse Engineering", "Linux", "Docker", "Docker Compose", "Networking", "Jira"],
+      technologies: [
+        "JavaScript",
+        "NodeJS",
+        "React",
+        "React-Native",
+        "Kotlin",
+        "Ruby",
+        "Python",
+        "Binary Reverse Engineering",
+        "Linux",
+        "Docker",
+        "Docker Compose",
+        "Networking",
+        "Jira",
+      ],
     },
     {
       title: "Software Engineering Intern",
@@ -127,7 +144,6 @@ export default function Resume() {
       about: "Largest South American telecom automation company",
       responsibilities: [
         "Developed modules for a large-scale Android application that conducts automated provisioning routines for various CPEs.",
-        "Worked with Kotlin and JavaScript (Vanilla, NodeJS).",
       ],
       technologies: ["Kotlin", "JavaScript", "NodeJS"],
     },
@@ -140,7 +156,7 @@ export default function Resume() {
       endDate: new Date(2021, 8), // September 2021
       about: "High-School scientific initiation",
       responsibilities: [
-        "Developed a full-stack COVID-19 patient, test, and vaccine management solution for regional health departments and hospitals, producing periodic reports for statistical analysis by higher administrative instances.",
+        "Developed a full-stack COVID-19 patient, test, and vaccine management solution for regional health departments and hospitals, aggregating data and producing periodic reports for statistical analysis by municipal governments of Rio Grande do Sul.",
         "Integrated web backend with a mobile app developed in React Native.",
       ],
       technologies: ["JavaScript", "React", "NodeJS", "MongoDB"],
@@ -155,8 +171,8 @@ export default function Resume() {
       endDate: new Date(2019, 11), // December 2019
       about: "High-School scientific initiation",
       responsibilities: [
-        "Developed a 3D-Printed digital key locker integrated with a local database and computer, with user identification done through RFID tags.",
-        "Competed at the Brazilian Science and Technology Fair and was awarded 3rd place in the category of Electrical Engineering.",
+        "Developed a 3D-Printed digital key locker integrated with a local database and computer, with user identification via RFID tags.",
+        "Competed at the Brazilian Science and Technology Fair and secured 3rd place in Electrical Engineering.",
       ],
       technologies: ["3D Printing", "Arduino", "Java"],
     },
@@ -232,21 +248,36 @@ export default function Resume() {
               rodrigo.guima.ourique@gmail.com
             </a>
           </p>
+          <p className="text-indigo-200">
+            Phone:{" "}
+            <a
+              href="tel:+5551998077812"
+              className="underline hover:text-white"
+            >
+              +55 51 99807-7812
+            </a>
+          </p>
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-2">
             <a
               href="https://linkedin.com/in/rodrigo-ourique-7aa30721b"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-indigo-200 hover:text-white"
             >
               LinkedIn
             </a>
             <a
               href="https://github.com/Rosbifbr/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-indigo-200 hover:text-white"
             >
               GitHub
             </a>
             <a
               href="https://stackoverflow.com/users/17733945/rodrigo-ourique"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-indigo-200 hover:text-white"
             >
               StackOverflow
@@ -270,9 +301,15 @@ export default function Resume() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Languages</h2>
           <div className="flex flex-wrap gap-4">
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">🇧🇷 Portuguese - Native</span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">🇪🇸 Spanish - Intermediate</span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">🇺🇸 English - Fluent</span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+              🇧🇷 Portuguese (CEFR: C2)
+            </span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+              🇪🇸 Spanish (CEFR: B1)
+            </span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+              🇺🇸 English (CEFR: C1)
+            </span>
           </div>
         </section>
       </div>
@@ -368,21 +405,41 @@ function ExperienceSection({ experienceData }: { experienceData: Experience[] })
  * - title: Job title
  * - company: Company name
  * - location: Job location
- * - period: Duration of employment
  * - responsibilities: Array of responsibilities or achievements
  */
-function ExperienceItem({ title, company, location, startDate, endDate, responsibilities, technologies, about }: Experience) {
+function ExperienceItem({
+  title,
+  company,
+  location,
+  startDate,
+  endDate,
+  responsibilities,
+  technologies,
+  about,
+}: Experience) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{title}</h4>
       <p className="text-indigo-100">
-        {formatDate(startDate)} - {endDate ? formatDate(endDate) : 'Present'} · {calculateDuration(startDate, endDate)}
+        {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"} ·{" "}
+        {calculateDuration(startDate, endDate)}
       </p>
       <div className="flex items-center gap-2">
-        <p className="text-indigo-200">{company}, {location}</p>
+        <p className="text-indigo-200">
+          {company}, {location}
+        </p>
         <div className="group relative">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-indigo-300 cursor-help" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 text-indigo-300 cursor-help"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+              clipRule="evenodd"
+            />
           </svg>
           <div className="absolute hidden group-hover:block bg-indigo-800 text-white text-sm px-3 py-2 rounded-lg w-64 -left-32 mt-2">
             {about}
@@ -391,7 +448,10 @@ function ExperienceItem({ title, company, location, startDate, endDate, responsi
       </div>
       <div className="space-y-3 mt-4">
         {responsibilities.map((item, index) => (
-          <p key={index} className="text-indigo-100 pl-4 border-l-2 border-indigo-300">
+          <p
+            key={index}
+            className="text-indigo-100 pl-4 border-l-2 border-indigo-300"
+          >
             {item}
           </p>
         ))}
@@ -417,7 +477,11 @@ function ExperienceItem({ title, company, location, startDate, endDate, responsi
  * Props:
  * - educationData: Array of education entries
  */
-function EducationSection({ educationData }: { educationData: Education[] }) {
+function EducationSection({
+  educationData,
+}: {
+  educationData: Education[];
+}) {
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">Education</h2>
@@ -443,12 +507,18 @@ function EducationSection({ educationData }: { educationData: Education[] }) {
  * - institution: Institution name
  * - period: Duration of study
  */
-function EducationItem({ degree, institution, startDate, endDate }: Education) {
+function EducationItem({
+  degree,
+  institution,
+  startDate,
+  endDate,
+}: Education) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{degree}</h4>
       <p className="text-indigo-100">
-        {formatDate(startDate)} - {endDate ? formatDate(endDate) : 'Present'} · {calculateDuration(startDate, endDate)}
+        {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"} ·{" "}
+        {calculateDuration(startDate, endDate)}
       </p>
       <p className="text-indigo-200">{institution}</p>
     </div>
