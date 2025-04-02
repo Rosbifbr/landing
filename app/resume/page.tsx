@@ -112,12 +112,12 @@ export default function Resume() {
       endDate: null, // Present
       about: "Largest South American telecom automation company",
       responsibilities: [
-        "Developed a React-Native Android app for automated GPON, EPON, and L3 CPE deployment, quality control, and WiFi frequency mapping.",
+        "Led a team of developers on a full React-Native and JS backend rewrite of a legacy Android application for automated GPON, EPON, and L3 CPE provisioning, quality assessment, and WiFi mapping.",
+        "Led a team of developers on the implementation of automated provisioning pipelines for devices of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
         "Implemented a custom JavaScript compiler/processor microservice for dynamic WebDriver updates.",
-        "Led a team of developers to implement automated provisioning pipelines for multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
-        "Reverse-engineered significant amounts of networking hardware for improved integration with management services.",
+        "Reverse-engineered significant amounts of networking hardware for improved integration with management services. (C/Linux/ASM)",
         "Maintained a full-stack web app for L2/L3 administration of GPON infrastructure, network analysis, and provisioning pipeline determination.",
-        "Enhanced analytics for TR-098/369 bulk data processing and failure classification.",
+        "Enhanced and maintained analytics service for TR-098/369 bulk data processing and failure classification.",
       ],
       technologies: [
         "JavaScript",
