@@ -55,7 +55,6 @@ interface Award {
 }
 
 export default function Resume() {
-  // Skills Data (Removed redundant "Web (APIs, JavaScript)")
   const skillsData: Skill[] = [
     {
       category: "Web Development",
@@ -68,6 +67,7 @@ export default function Resume() {
         "MongoDB",
         "SQL",
         "Docker, Docker Compose",
+        "HTML",
       ],
     },
     {
@@ -84,11 +84,11 @@ export default function Resume() {
         "C",
         "Rust",
         "Networking",
-        "Reverse Engineering",
-        "Linux binaries",
+        "Reverse Engineering (ASM, Linux, Ghidra)",
         "IOT Devices (Mainly GPON ONTs)",
         "Linux (Ubuntu, Debian, Alpine)",
-        "Shell scripting (POSIX, Fish)",
+        "Shell scripting (POSIX, Fish, Bash)",
+        "Network infrastructure",
       ],
     },
     {
@@ -98,6 +98,17 @@ export default function Resume() {
         "Git",
         "GitHub, Bitbucket",
         "Jira",
+        "Agile software development methodologies",
+        "Scrum",
+      ],
+    },
+    {
+      category: "Other",
+      skills: [
+        "Data structures",
+        "Object-Oriented Programming (OOP)",
+        "Software development",
+        "Low-Level debugging (LLDB, Pure GDB)",
       ],
     },
   ];
@@ -105,19 +116,20 @@ export default function Resume() {
   // Experience Data
   const experienceData: Experience[] = [
     {
-      title: "Full Stack Software Engineer",
+      title: "Senior Software Engineer",
       company: "INT6 Tech",
-      location: "Porto Alegre",
-      startDate: new Date(2021, 11), // December 2021
+      location: "Porto Alegre, Rio Grande do Sul, Brazil",
+      startDate: new Date(2023, 9), // October 2023
       endDate: null, // Present
-      about: "Largest South American telecom automation company",
+      about: "Largest South American telecom automations company",
       responsibilities: [
-        "Led a team of developers on a full React-Native and JS backend rewrite of a legacy Android application for automated GPON, EPON, and L3 CPE provisioning, quality assessment, and WiFi mapping.",
-        "Led a team of developers on the implementation of automated provisioning pipelines for devices of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
-        "Implemented a custom JavaScript compiler/processor microservice for dynamic WebDriver updates.",
-        "Reverse-engineered significant amounts of networking hardware for improved integration with management services. (C/Linux/ASM)",
+        "Led a team of developers on a full React-Native and TS backend rewrite of a legacy system for automated GPON, EPON, and L3 CPE provisioning, quality assessment, and WiFi mapping.",
+        "Mentored a team of developers on the implementation of automated provisioning pipelines for devices of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
+        "Reverse-engineered significant amounts of networking hardware, images and binaries for improved integration with management services. (C,ASM,Linux,Ghidra)",
+        "Enhanced and maintained analytics service for TR-098/369 bulk data processing, failure clustering and event classification.",
+        "Collaborated with multiple Senior Engineers on several architectural redesigns and stipulation of code standards and processes.",
+        "Implemented a custom JavaScript compiler/processor microservice for WebDriver bundling and synchronization.",
         "Maintained a full-stack web app for L2/L3 administration of GPON infrastructure, network analysis, and provisioning pipeline determination.",
-        "Enhanced and maintained analytics service for TR-098/369 bulk data processing and failure classification.",
       ],
       technologies: [
         "JavaScript",
@@ -127,7 +139,36 @@ export default function Resume() {
         "Kotlin",
         "Ruby",
         "Python",
-        "Binary Reverse Engineering",
+        "C",
+        "Reverse Engineering (ASM, Linux, Ghidra)",
+        "Linux",
+        "Docker",
+        "Docker Compose",
+        "Networking",
+        "Jira",
+      ],
+    },
+    {
+      title: "Mid-Level Software Engineer",
+      company: "INT6 Tech",
+      location: "Porto Alegre, Rio Grande do Sul, Brazil",
+      startDate: new Date(2021, 11), // December 2021
+      endDate: new Date(2023, 9), // October 2023
+      about: "Largest South American telecom automations company",
+      responsibilities: [
+        "Led a team of developers on the implementation of automated provisioning pipelines for devices of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
+        "Implemented a custom JavaScript compiler/processor microservice for WebDriver bundling and synchronization.",
+        "Maintained and thoroughly enhanced Android application for automated installation, management and ISP-specific configuration for end-user network infrastructure (Access Points, Routers and ONUs).",
+        "Maintained a full-stack web app for L2/L3 administration of GPON infrastructure, network analysis, and provisioning pipeline determination.",
+      ],
+      technologies: [
+        "JavaScript",
+        "NodeJS",
+        "React",
+        "React-Native",
+        "Kotlin",
+        "Ruby",
+        "Python",
         "Linux",
         "Docker",
         "Docker Compose",
@@ -138,12 +179,12 @@ export default function Resume() {
     {
       title: "Software Engineering Intern",
       company: "INT6 Tech",
-      location: "Porto Alegre",
+      location: "Porto Alegre, Rio Grande do Sul, Brazil",
       startDate: new Date(2021, 3), // April 2021
       endDate: new Date(2021, 11), // December 2021
-      about: "Largest South American telecom automation company",
+      about: "Largest South American telecom automations company",
       responsibilities: [
-        "Developed modules for a large-scale Android application that conducts automated provisioning routines for various CPEs.",
+        "Maintained Android application for automated installation, management and ISP-specific configuration for end-user network infrastructure (Access Points, Routers and ONUs).",
       ],
       technologies: ["Kotlin", "JavaScript", "NodeJS"],
     },
@@ -302,13 +343,16 @@ export default function Resume() {
           <h2 className="text-2xl font-semibold mb-4">Languages</h2>
           <div className="flex flex-wrap gap-4">
             <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+              🇺🇸 English (CEFR: C1)
+            </span>
+            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
               🇧🇷 Portuguese (CEFR: C2)
             </span>
             <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
               🇪🇸 Spanish (CEFR: B1)
             </span>
             <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
-              🇺🇸 English (CEFR: C1)
+              🇫🇷 French (CEFR: A1)
             </span>
           </div>
         </section>
