@@ -352,7 +352,7 @@ export default function Resume() {
               🇪🇸 Spanish (CEFR: B1)
             </span>
             <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
-              🇫🇷 French (CEFR: A1)
+              🇫🇷 French (CEFR: A2)
             </span>
           </div>
         </section>
