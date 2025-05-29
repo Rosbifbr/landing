@@ -267,7 +267,7 @@ export default function Resume() {
   ];
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-gradient-to-r from-blue-700 to-purple-800 text-white p-8">
+    <main className="flex flex-col items-center min-h-screen bg-gradient-to-r from-indigo-800 to-purple-900 text-white p-8">
       <h1 className="text-4xl font-bold mb-2">Rodrigo Guimarães Ourique</h1>
       <p className="text-xl mb-1">
         Full Stack Software Engineer at Int6Tech
