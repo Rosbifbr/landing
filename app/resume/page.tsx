@@ -228,14 +228,14 @@ export default function Resume() {
       endDate: null, // Present
     },
     {
-      degree: "B.S. in Computer Science",
+      degree: "B.S. in Computer Science (Semester)",
       institution:
         "Pontifical Catholic University of Rio Grande do Sul (PUCRS)",
       startDate: new Date(2022, 7), // August 2022
       endDate: new Date(2023, 1), // January 2023
     },
     {
-      degree: "B.S. in Computer Science",
+      degree: "B.S. in Computer Science (Semester)",
       institution: "University of Vale do Rio dos Sinos (Unisinos)",
       startDate: new Date(2022, 1), // February 2022
       endDate: new Date(2022, 7), // August 2022
