@@ -35,7 +35,7 @@ export default function PrintButton() {
   return (
     <button
       onClick={handlePrint}
-      className="px-6 py-3 bg-white text-indigo-600 rounded-full font-semibold hover:bg-indigo-100 transition-colors"
+      className="px-6 py-3 bg-gray-700 text-white rounded-full font-semibold hover:bg-gray-600 transition-colors"
     >
       Export to PDF
     </button>

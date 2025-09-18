@@ -267,20 +267,20 @@ export default function Resume() {
   ];
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-gradient-to-r from-indigo-800 to-purple-900 text-white p-8">
+    <main className="flex flex-col items-center min-h-screen bg-gray-900 text-white p-8">
       <h1 className="text-4xl font-bold mb-2">Rodrigo Guimarães Ourique</h1>
       <p className="text-xl mb-1">
         Full Stack Software Engineer at Int6Tech
       </p>
-      <p className="text-indigo-200 mb-1">
+      <p className="text-gray-300 mb-1">
         510 Delfino Riet Street, Porto Alegre, Rio Grande do Sul, Brazil
       </p>
 
-      <div className="max-w-4xl w-full bg-white/10 backdrop-blur-sm rounded-lg p-8 space-y-8 mt-6">
+      <div className="max-w-4xl w-full bg-gray-800/30 backdrop-blur-sm rounded-lg p-8 space-y-8 mt-6">
         {/* Contact Section */}
         <section className="space-y-2">
           <h2 className="text-2xl font-semibold mb-4">Contact</h2>
-          <p className="text-indigo-200">
+          <p className="text-gray-300">
             E-Mail:{" "}
             <a
               href="mailto:rodrigo.guima.ourique@gmail.com"
@@ -289,7 +289,7 @@ export default function Resume() {
               rodrigo.guima.ourique@gmail.com
             </a>
           </p>
-          <p className="text-indigo-200">
+          <p className="text-gray-300">
             Phone:{" "}
             <a
               href="tel:+5551998077812"
@@ -303,7 +303,7 @@ export default function Resume() {
               href="https://linkedin.com/in/rodrigo-ourique-7aa30721b"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-200 hover:text-white"
+              className="text-gray-300 hover:text-white"
             >
               LinkedIn
             </a>
@@ -311,7 +311,7 @@ export default function Resume() {
               href="https://github.com/Rosbifbr/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-200 hover:text-white"
+              className="text-gray-300 hover:text-white"
             >
               GitHub
             </a>
@@ -319,7 +319,7 @@ export default function Resume() {
               href="https://stackoverflow.com/users/17733945/rodrigo-ourique"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-200 hover:text-white"
+              className="text-gray-300 hover:text-white"
             >
               StackOverflow
             </a>
@@ -342,16 +342,16 @@ export default function Resume() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">Languages</h2>
           <div className="flex flex-wrap gap-4">
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+            <span className="px-3 py-1 text-sm bg-gray-300/30 rounded-full text-gray-200">
               🇺🇸 English (CEFR: C1)
             </span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+            <span className="px-3 py-1 text-sm bg-gray-300/30 rounded-full text-gray-200">
               🇧🇷 Portuguese (CEFR: C2)
             </span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+            <span className="px-3 py-1 text-sm bg-gray-300/30 rounded-full text-gray-200">
               🇪🇸 Spanish (CEFR: B1)
             </span>
-            <span className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100">
+            <span className="px-3 py-1 text-sm bg-gray-300/30 rounded-full text-gray-200">
               🇫🇷 French (CEFR: A2)
             </span>
           </div>
@@ -362,7 +362,7 @@ export default function Resume() {
       <div className="flex flex-col sm:flex-row gap-4 mt-8">
         <Link
           href="/"
-          className="px-6 py-3 bg-white text-indigo-600 rounded-full font-semibold hover:bg-indigo-100 transition-colors text-center"
+          className="px-6 py-3 bg-gray-700 text-white rounded-full font-semibold hover:bg-gray-600 transition-colors text-center"
         >
           Back to Home
         </Link>
@@ -464,12 +464,12 @@ function ExperienceItem({
   return (
     <div>
       <h4 className="text-xl font-semibold">{title}</h4>
-      <p className="text-indigo-100">
+      <p className="text-gray-200">
         {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"} ·{" "}
         {calculateDuration(startDate, endDate)}
       </p>
       <div className="flex items-center gap-2">
-        <p className="text-indigo-200">
+        <p className="text-gray-300">
           {company}, {location}
         </p>
         <div className="group relative">
@@ -485,7 +485,7 @@ function ExperienceItem({
               clipRule="evenodd"
             />
           </svg>
-          <div className="absolute hidden group-hover:block bg-indigo-800 text-white text-sm px-3 py-2 rounded-lg w-64 -left-32 mt-2">
+          <div className="absolute hidden group-hover:block bg-gray-700 text-white text-sm px-3 py-2 rounded-lg w-64 -left-32 mt-2">
             {about}
           </div>
         </div>
@@ -494,7 +494,7 @@ function ExperienceItem({
         {responsibilities.map((item, index) => (
           <p
             key={index}
-            className="text-indigo-100 pl-4 border-l-2 border-indigo-300"
+            className="text-gray-200 pl-4 border-l-2 border-gray-300"
           >
             {item}
           </p>
@@ -505,7 +505,7 @@ function ExperienceItem({
           {technologies.map((tech, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-sm bg-indigo-200/30 rounded-full text-indigo-100"
+              className="px-3 py-1 text-sm bg-gray-300/30 rounded-full text-gray-200"
             >
               {tech}
             </span>
@@ -564,7 +564,7 @@ function EducationItem({
         {formatDate(startDate)} - {endDate ? formatDate(endDate) : "Present"} ·{" "}
         {calculateDuration(startDate, endDate)}
       </p>
-      <p className="text-indigo-200">{institution}</p>
+      <p className="text-gray-300">{institution}</p>
     </div>
   );
 }
@@ -603,8 +603,8 @@ function AwardItem({ title, location, description }: Award) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{title}</h4>
-      <p className="text-indigo-200">{location}</p>
-      <p className="text-indigo-100">{description}</p>
+      <p className="text-gray-300">{location}</p>
+      <p className="text-gray-200">{description}</p>
     </div>
   );
 }
