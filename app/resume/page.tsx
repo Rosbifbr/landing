@@ -67,7 +67,6 @@ export default function Resume() {
         "MongoDB",
         "SQL",
         "Docker, Docker Compose",
-        "HTML",
       ],
     },
     {
@@ -100,14 +99,14 @@ export default function Resume() {
         "Jira",
         "Agile software development methodologies",
         "Scrum",
+        "Vim (btw)",
       ],
     },
     {
       category: "Other",
       skills: [
-        "Data structures",
+        "Data structures, optimization, good-taste, algorithmic complexity",
         "Object-Oriented Programming (OOP)",
-        "Software development",
         "Low-Level debugging (LLDB, Pure GDB)",
       ],
     },
@@ -116,18 +115,18 @@ export default function Resume() {
   // Experience Data
   const experienceData: Experience[] = [
     {
-      title: "Senior Software Engineer",
+      title: "Senior Software Engineer (Vested)",
       company: "INT6 Tech",
       location: "Porto Alegre, Rio Grande do Sul, Brazil",
       startDate: new Date(2023, 9), // October 2023
       endDate: null, // Present
       about: "Largest South American telecom automations company",
       responsibilities: [
-        "Led a team of developers on a full React-Native and TS backend rewrite of a legacy system for automated GPON, EPON, and L3 CPE provisioning, quality assessment, and WiFi mapping.",
-        "Mentored a team of developers on the implementation of automated provisioning pipelines for devices of multiple vendors (Huawei, ZTE, Fiberhome, Intelbras, etc.).",
+        "Led and mentored a cross-functional team of 3 developers through a full React-Native and TypeScript backend rewrite, driving successful delivery of a modernized telecom automation platform.",
+        "Provided hands-on mentorship and technical guidance to 7 junior and mid-level developers, fostering skill growth and ensuring high standards in automated provisioning pipeline implementation for multi-vendor devices.",
         "Reverse-engineered significant amounts of networking hardware, images and binaries for improved integration with management services. (C,ASM,Linux,Ghidra)",
         "Enhanced and maintained analytics service for TR-098/369 bulk data processing, failure clustering and event classification.",
-        "Collaborated with multiple Senior Engineers on several architectural redesigns and stipulation of code standards and processes.",
+        "Acted as a key contributor in architectural redesigns, collaborating with senior engineers to establish robust code standards and scalable processes across the organization.",
         "Implemented a custom JavaScript compiler/processor microservice for WebDriver bundling and synchronization.",
         "Maintained a full-stack web app for L2/L3 administration of GPON infrastructure, network analysis, and provisioning pipeline determination.",
       ],
@@ -224,25 +223,24 @@ export default function Resume() {
     {
       degree: "B.S. in Computer Science",
       institution: "Federal University of Rio Grande do Sul (UFRGS)",
-      startDate: new Date(2023, 4), // May 2023
+      startDate: new Date(2022, 1), // May 2023 (globbing other unis. Standard practice not to bloat resume)
       endDate: null, // Present
     },
+    //     {
+    //       degree: "B.S. in Computer Science (Semester)",
+    //       institution:
+    //         "Pontifical Catholic University of Rio Grande do Sul (PUCRS)",
+    //       startDate: new Date(2022, 7), // August 2022
+    //       endDate: new Date(2023, 1), // January 2023
+    //     },
+    //     {
+    //       degree: "B.S. in Computer Science (Semester)",
+    //       institution: "University of Vale do Rio dos Sinos (Unisinos)",
+    //       startDate: new Date(2022, 1), // February 2022
+    //       endDate: new Date(2022, 7), // August 2022
+    //     },
     {
-      degree: "B.S. in Computer Science (Semester)",
-      institution:
-        "Pontifical Catholic University of Rio Grande do Sul (PUCRS)",
-      startDate: new Date(2022, 7), // August 2022
-      endDate: new Date(2023, 1), // January 2023
-    },
-    {
-      degree: "B.S. in Computer Science (Semester)",
-      institution: "University of Vale do Rio dos Sinos (Unisinos)",
-      startDate: new Date(2022, 1), // February 2022
-      endDate: new Date(2022, 7), // August 2022
-    },
-    {
-      degree:
-        "High School with Associate Degree in Information Technology",
+      degree: "High School with Associate Degree in Information Technology",
       institution:
         "Federal Institute of Education, Science and Technology of Rio Grande do Sul (IFRS)",
       startDate: new Date(2018, 1), // February 2018
@@ -255,8 +253,7 @@ export default function Resume() {
     {
       title: "Brazilian Science and Technology Exhibit (Mostratec)",
       location: "Novo Hamburgo, 2019 Edition",
-      description:
-        "Third place in Electronic Engineering with project ClavIF.",
+      description: "Third place in Electronic Engineering with project ClavIF.",
     },
     {
       title: "Education, Extension and Research Exposition (MoExP)",
@@ -269,9 +266,7 @@ export default function Resume() {
   return (
     <main className="flex flex-col items-center min-h-screen bg-gray-900 text-white p-8">
       <h1 className="text-4xl font-bold mb-2">Rodrigo Guimarães Ourique</h1>
-      <p className="text-xl mb-1">
-        Full Stack Software Engineer at Int6Tech
-      </p>
+      <p className="text-xl mb-1">Full Stack Software Engineer at Int6Tech</p>
       <p className="text-gray-300 mb-1">
         510 Delfino Riet Street, Porto Alegre, Rio Grande do Sul, Brazil
       </p>
@@ -291,10 +286,7 @@ export default function Resume() {
           </p>
           <p className="text-gray-300">
             Phone:{" "}
-            <a
-              href="tel:+5551998077812"
-              className="underline hover:text-white"
-            >
+            <a href="tel:+5551998077812" className="underline hover:text-white">
               +55 51 99807-7812
             </a>
           </p>
@@ -402,7 +394,13 @@ function SkillsSection({ skillsData }: { skillsData: Skill[] }) {
  * - category: The category of skills (e.g., Web Development)
  * - skills: Array of skills under the category
  */
-function SkillItem({ category, skills }: { category: string; skills: string[] }) {
+function SkillItem({
+  category,
+  skills,
+}: {
+  category: string;
+  skills: string[];
+}) {
   return (
     <div>
       <h4 className="text-xl font-semibold mb-2">{category}</h4>
@@ -420,7 +418,11 @@ function SkillItem({ category, skills }: { category: string; skills: string[] })
  * Props:
  * - experienceData: Array of experience entries
  */
-function ExperienceSection({ experienceData }: { experienceData: Experience[] }) {
+function ExperienceSection({
+  experienceData,
+}: {
+  experienceData: Experience[];
+}) {
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">Experience</h2>
@@ -521,11 +523,7 @@ function ExperienceItem({
  * Props:
  * - educationData: Array of education entries
  */
-function EducationSection({
-  educationData,
-}: {
-  educationData: Education[];
-}) {
+function EducationSection({ educationData }: { educationData: Education[] }) {
   return (
     <section>
       <h2 className="text-2xl font-semibold mb-4">Education</h2>
@@ -551,12 +549,7 @@ function EducationSection({
  * - institution: Institution name
  * - period: Duration of study
  */
-function EducationItem({
-  degree,
-  institution,
-  startDate,
-  endDate,
-}: Education) {
+function EducationItem({ degree, institution, startDate, endDate }: Education) {
   return (
     <div>
       <h4 className="text-xl font-semibold">{degree}</h4>
