@@ -122,7 +122,7 @@ export default function Resume() {
       endDate: null, // Present
       about: "Largest South American telecom automations company",
       responsibilities: [
-        "Led and mentored a cross-functional team of 3 developers through a full React-Native and TypeScript backend rewrite, driving successful delivery of a modernized telecom automation platform.",
+        "Led and mentored a cross-functional team of 3 developers on the rewrite of a complex, multi-platform mobile application from scratch, which successfully delivered OTA-Updatable GUIs/assets and sophisticated features like secure, sandboxed function evaluation and offline CPE provisioning pipelines (via proprietary WebDrivers and SSH Drivers), supporting flexible and advanced business requirements for a telecom automation platform.",
         "Provided hands-on mentorship and technical guidance to 7 junior and mid-level developers, fostering skill growth and ensuring high standards in automated provisioning pipeline implementation for multi-vendor devices.",
         "Reverse-engineered significant amounts of networking hardware, images and binaries for improved integration with management services. (C,ASM,Linux,Ghidra)",
         "Enhanced and maintained analytics service for TR-098/369 bulk data processing, failure clustering and event classification.",
