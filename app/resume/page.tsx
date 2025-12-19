@@ -82,11 +82,12 @@ export default function Resume() {
       skills: [
         "C",
         "Rust",
+        "Debugging (LLDB, GDB, GDB + QEMU)",
         "Networking",
         "Reverse Engineering (ASM, Linux, Ghidra)",
         "IOT Devices (Mainly GPON ONTs)",
         "Linux (Ubuntu, Debian, Alpine)",
-        "Shell scripting (POSIX, Fish, Bash)",
+        "Shell scripting (Fish, Bash)",
         "Network infrastructure",
       ],
     },
@@ -95,19 +96,16 @@ export default function Resume() {
       skills: [
         "SCRUM/Agile development",
         "Git",
-        "GitHub, Bitbucket",
+        "GitHub Actions, Bitbucket Pipelines",
         "Jira",
-        "Agile software development methodologies",
-        "Scrum",
         "Vim (btw)",
       ],
     },
     {
       category: "Other",
       skills: [
-        "Data structures, optimization, good-taste, algorithmic complexity",
+        "Data structures, optimization, good-taste",
         "Object-Oriented Programming (OOP)",
-        "Low-Level debugging (LLDB, Pure GDB)",
       ],
     },
   ];
@@ -115,7 +113,7 @@ export default function Resume() {
   // Experience Data
   const experienceData: Experience[] = [
     {
-      title: "Senior Software Engineer (Vested)",
+      title: "Senior Software Engineer",
       company: "INT6 Tech",
       location: "Porto Alegre, Rio Grande do Sul, Brazil",
       startDate: new Date(2023, 9), // October 2023
