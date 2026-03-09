@@ -57,6 +57,8 @@ jobs:
         run: bun install
       - name: Build with Next.js
         run: bun run build
+        env:
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
