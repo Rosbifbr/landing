@@ -179,20 +179,20 @@ const experienceData: Experience[] = [
   //   ],
   //   technologies: [SKILLS.C, SKILLS.RE, SKILLS.LINUX, SKILLS.NET],
   // },
-  // {
-  //   title: "Training and Annotation Pipeline Specialist (Part-Time)",
-  //   company: "Boson AI",
-  //   location: "Santa Clara, CA, USA (Remote)",
-  //   startDate: new Date(2026, 2),
-  //   endDate: null,
-  //   about: "ASR and TTS audio model provider.",
-  //   website: "https://boson.ai/",
-  //   responsibilities: [
-  //     "Supervised training and fitting of audio models for Brazilian Portuguese, including data pipeline management, model evaluation and hyperparameter tuning.",
-  //     "Quality assurance and annotation of training data, including audio and transcriptions, with a focus on Brazilian Portuguese phonetics.",
-  //   ],
-  //   technologies: [SKILLS.PYTHON, SKILLS.AUDIO, SKILLS.ML, SKILLS.ANNOTATION],
-  // },
+  {
+    title: "Training and Annotation Pipeline Specialist (Part-Time)",
+    company: "Boson AI",
+    location: "Santa Clara, CA, USA (Remote)",
+    startDate: new Date(2026, 2),
+    endDate: null,
+    about: "ASR and TTS audio model provider.",
+    website: "https://boson.ai/",
+    responsibilities: [
+      "Supervised training and fitting of audio models for Brazilian Portuguese, including data pipeline management, model evaluation and hyperparameter tuning.",
+      "Quality assurance and annotation of training data, including audio and transcriptions, with a focus on Brazilian Portuguese phonetics.",
+    ],
+    technologies: [SKILLS.PYTHON, SKILLS.AUDIO, SKILLS.ML, SKILLS.ANNOTATION],
+  },
   {
     title: "Senior Software Engineer",
     company: "INT6 Tech",
@@ -324,8 +324,62 @@ function calculateDuration(start: Date, end: Date | null): string {
 }
 
 export default function Resume() {
+  const markdownCV = `
+# Rodrigo Guimarães Ourique
+Full Stack Software Engineer at Int6Tech
+Porto Alegre, Rio Grande do Sul, Brazil
+Email: rodrigo.guima.ourique@gmail.com
+LinkedIn: https://linkedin.com/in/rodrigo-ourique-7aa30721b
+GitHub: https://github.com/Rosbifbr/
+
+## Skills
+${skillsData.map((cat) => `### ${cat.category}\n${cat.skills.join(", ")}`).join("\n\n")}
+
+## Experience
+${experienceData
+  .map(
+    (exp) => `### ${exp.title}
+Company: ${exp.company}
+Location: ${exp.location}
+Date: ${formatDate(exp.startDate)} — ${exp.endDate ? formatDate(exp.endDate) : "Present"}
+About: ${exp.about}
+${exp.website ? `Website: ${exp.website}\n` : ""}Responsibilities:
+${exp.responsibilities.map((r) => `- ${r}`).join("\n")}
+Technologies: ${exp.technologies?.join(", ") || "None"}`,
+  )
+  .join("\n\n")}
+
+## Education
+${educationData
+  .map(
+    (edu) => `### ${edu.degree}
+Institution: ${edu.institution}
+Date: ${formatDate(edu.startDate)} — ${edu.endDate ? formatDate(edu.endDate) : "Present"}`,
+  )
+  .join("\n\n")}
+
+## Awards
+${awardsData
+  .map(
+    (award) => `### ${award.title}
+Location: ${award.location}
+Description: ${award.description}`,
+  )
+  .join("\n\n")}
+
+## Languages
+- English 🇬🇧: C1
+- Portuguese 🇵🇹: Native
+- Spanish 🇪🇸: B1
+- French 🇫🇷: A2
+- Italian 🇮🇹: A2
+`;
+
   return (
     <main className="min-h-screen p-4 md:p-12 max-w-5xl mx-auto space-y-6">
+      <div className="hidden" aria-hidden="true" title="Markdown CV for LLMs">
+        {markdownCV}
+      </div>
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
         <div className="space-y-2">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
