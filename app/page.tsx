@@ -15,6 +15,9 @@ export default function Home() {
           <Link href="/resume" className="px-8 py-3.5 bg-[var(--accent)] text-white rounded-full font-semibold hover:bg-[var(--accent-hover)] transition-all duration-300 shadow-md hover:shadow-xl active:scale-95">
             Resume
           </Link>
+          <Link href="/keys" className="px-8 py-3.5 bg-white dark:bg-gray-800 text-[var(--foreground)] border border-[var(--border)] rounded-full font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm active:scale-95">
+            Public Keys
+          </Link>
           <a
             href="mailto:rodrigo.guima.ourique@gmail.com"
             className="px-8 py-3.5 bg-white dark:bg-gray-800 text-[var(--foreground)] border border-[var(--border)] rounded-full font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-sm active:scale-95"
