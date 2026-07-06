@@ -60,6 +60,7 @@ const SKILLS = {
   OPT: "optimization",
   TASTE: "good-taste",
   OOP: "Object-Oriented Programming (OOP)",
+  OS: "Operating Systems Development (FreeRTOS, POSIX, Bare-metal)",
 
   // Specialized
   AUDIO: "Audio Processing",
@@ -165,31 +166,33 @@ const ifrs =
   "Federal Institute of Education, Science and Technology of Rio Grande do Sul (IFRS)";
 const ufrgs = "Federal University of Rio Grande do Sul (UFRGS)";
 const experienceData: Experience[] = [
-  // {
-  //   title: "Senior Software Engineer",
-  //   company: "Bond/Olibra",
-  //   location: "Cresskill, NJ, USA (Hybrid)",
-  //   startDate: new Date(2026, 3),
-  //   endDate: null,
-  //   about: "IOT and home automation startup focused on quality, ease-of-use and ease of integration",
-  //   website: "https://bondhome.io/",
-  //   responsibilities: [
-  //     "Embedded firmware development. Bare-metal for ARMv7 and RiscV",
-  //     "Reverse-engineering of significant amounts of IOT hardware, binary blobs and executables for improved integration with our products. (C,ASM,Linux,Ghidra)",
-  //   ],
-  //   technologies: [SKILLS.C, SKILLS.RE, SKILLS.LINUX, SKILLS.NET],
-  // },
   {
-    title: "Training and Annotation Pipeline Specialist (Part-Time)",
+    title: "Embedded Systems Engineer",
+    company: "Olibra LLC",
+    location: "Cresskill, NJ, USA (Hybrid)",
+    startDate: new Date(2026, 3),
+    endDate: null,
+    about: "Premium home automation focused on quality, security and ease-of-use",
+    website: "https://bondhome.io/",
+    responsibilities: [
+      "Developed and verified firmware for a multitude of computer architectures and scopes, particularly Xtensa and ARMv7 integrating bare-metal POSTIX shims or FreeRTOS.",
+      "Developed software for battery-constrained scenarios, focusing in tightening of sleeping algorithms while maintaining control reliability.",
+      "Introduced formal verification methods (TLA+) for quality control processes in critical software modules, with an emphasis on coordination of distributed systems/state machines.",
+      "Integrated high-level firmware HTTP and BLE APIs with Android and iOS applications.",
+    ],
+    technologies: [SKILLS.C, SKILLS.RE, SKILLS.OS, SKILLS.LINUX, SKILLS.NET],
+  },
+  {
+    title: "Training and Annotation Pipeline Specialist (Contract)",
     company: "Boson AI",
     location: "Santa Clara, CA, USA (Remote)",
     startDate: new Date(2026, 2),
-    endDate: null,
+    endDate: new Date(2026, 4),
     about: "ASR and TTS audio model provider.",
     website: "https://boson.ai/",
     responsibilities: [
-      "Supervised training and fitting of audio models for Brazilian Portuguese, including data pipeline management, model evaluation and hyperparameter tuning.",
-      "Quality assurance and annotation of training data, including audio and transcriptions, with a focus on Brazilian Portuguese phonetics.",
+      "Contributed in the fine-tuning of Higgs Audio ASR/TTS models for Brazilian Portuguese and its regional variations/accents, particularly on data-ingestion, model evaluation, and dataset curation end-to-end.",
+      "Built automated annotation pipelines for audio and transcription data, with emphasis on encoding regional differences in brazilian portuguese phonetics.",
     ],
     technologies: [SKILLS.PYTHON, SKILLS.AUDIO, SKILLS.ML, SKILLS.ANNOTATION],
   },
