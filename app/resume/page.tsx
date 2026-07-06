@@ -23,6 +23,7 @@ const SKILLS = {
   KOTLIN: "Kotlin",
   JAVA: "Java",
   ANDROID: "Android",
+  IOS: "iOS",
   RN: "React-Native",
 
   // Systems/Low-Level
@@ -172,15 +173,24 @@ const experienceData: Experience[] = [
     location: "Cresskill, NJ, USA (Hybrid)",
     startDate: new Date(2026, 3),
     endDate: null,
-    about: "Premium home automation focused on quality, security and ease-of-use",
+    about:
+      "Premium home automation focused on quality, security and ease-of-use",
     website: "https://bondhome.io/",
     responsibilities: [
-      "Developed and verified firmware for a multitude of computer architectures and scopes, particularly Xtensa and ARMv7 integrating bare-metal POSTIX shims or FreeRTOS.",
-      "Developed software for battery-constrained scenarios, focusing in tightening of sleeping algorithms while maintaining control reliability.",
-      "Introduced formal verification methods (TLA+) for quality control processes in critical software modules, with an emphasis on coordination of distributed systems/state machines.",
-      "Integrated high-level firmware HTTP and BLE APIs with Android and iOS applications.",
+      "Developed and verified firmware for a multitude of home automation systems targeting different computer architectures and scopes, particularly Xtensa and ARMv7, engineered both on top of bare-metal POSTIX shims or FreeRTOS.",
+      "Developed firwmare in multiple battery-constrained scenarios, focusing on the tightening of sleeping algorithms while maintaining RF and BLE control reliability.",
+      "Introduced formal verification methods (TLA+) for quality control processes in critical software modules, with an emphasis on coordination of distributed systems/state machines. Resolved major reliability failure this way.",
+      "Also developed high-level firmware HTTP and BLE Modules/APIs for integration with Android and iOS applications.",
     ],
-    technologies: [SKILLS.C, SKILLS.RE, SKILLS.OS, SKILLS.LINUX, SKILLS.NET],
+    technologies: [
+      SKILLS.C,
+      SKILLS.RE,
+      SKILLS.OS,
+      SKILLS.LINUX,
+      SKILLS.NET,
+      SKILLS.ANDROID,
+      SKILLS.IOS,
+    ],
   },
   {
     title: "Training and Annotation Pipeline Specialist (Contract)",
@@ -232,7 +242,7 @@ const experienceData: Experience[] = [
   {
     title: "CNPq Scientific Initiation Scholarship, Promovid@ Project",
     company: ifrs,
-    location: "Osório",
+    location: "Osório, RS, Brazil",
     startDate: new Date(2020, 8),
     endDate: new Date(2021, 8),
     about: "High-School scientific initiation",
@@ -247,7 +257,7 @@ const experienceData: Experience[] = [
     title:
       "Volunteer Scientific Initiation Program, Novas Tecnologias Project, ClavIF Group",
     company: ifrs,
-    location: "Osório",
+    location: "Osório, RS, Brazil",
     startDate: new Date(2019, 3),
     endDate: new Date(2019, 11),
     about: "High-School scientific initiation",
@@ -291,6 +301,12 @@ const educationData: Education[] = [
 
 const awardsData: Award[] = [
   {
+    title: "3rd School of Advanced Computing (ECOA) - UFRGS",
+    location: "Porto Alegre, 2025 Edition",
+    description:
+      "Keynote Speaker: Reliably Applying Machine Learning in High-Risk Environments",
+  },
+  {
     title: "Brazilian Science and Technology Exhibit (Mostratec)",
     location: "Novo Hamburgo, 2019 Edition",
     description: "Third place in Electronic Engineering with project ClavIF.",
@@ -303,8 +319,8 @@ const awardsData: Award[] = [
   },
 ];
 
-function formatDate(date: Date): string {
-  return date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+function formatDate(date: Date, month: "long" | "short" = "long"): string {
+  return date.toLocaleDateString("en-US", { month, year: "numeric" });
 }
 
 function calculateDuration(start: Date, end: Date | null): string {
@@ -329,7 +345,7 @@ function calculateDuration(start: Date, end: Date | null): string {
 export default function Resume() {
   const markdownCV = `
 # Rodrigo Guimarães Ourique
-Full Stack Software Engineer at Int6Tech
+Embedded Systems Engineer at Olibra LLC
 Porto Alegre, Rio Grande do Sul, Brazil
 Email: rodrigo.guima.ourique@gmail.com
 LinkedIn: https://linkedin.com/in/rodrigo-ourique-7aa30721b
@@ -389,7 +405,7 @@ Description: ${award.description}`,
             Rodrigo Guimarães Ourique
           </h1>
           <p className="text-xl text-[var(--secondary)] font-medium">
-            Full Stack Software Engineer at Int6Tech
+            Embedded Systems Engineer at Olibra LLC
           </p>
           <p className="text-[var(--secondary)]">
             Porto Alegre, Rio Grande do Sul, Brazil
@@ -457,35 +473,38 @@ Description: ${award.description}`,
             <div className="space-y-10">
               {experienceData.map((exp, i) => (
                 <div key={i} className="space-y-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="text-xl font-bold">{exp.title}</h3>
-                      <div className="flex items-center gap-2">
-                        <p className="font-medium text-[var(--accent)]">
+                  <div>
+                    <h3 className="text-xl font-bold">{exp.title}</h3>
+                    <p className="font-medium">
+                      {exp.website ? (
+                        <a
+                          href={exp.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[var(--accent)] hover:underline"
+                        >
+                          {exp.company}&nbsp;↗
+                        </a>
+                      ) : (
+                        <span className="text-[var(--accent)]">
                           {exp.company}
-                        </p>
-                        {exp.website && (
-                          <a
-                            href={exp.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[10px] uppercase tracking-widest font-bold opacity-40 hover:opacity-100 transition-opacity"
-                          >
-                            [Website]
-                          </a>
-                        )}
-                      </div>
-                      <p className="text-xs text-[var(--secondary)] italic mt-1">
-                        {exp.about}
-                      </p>
-                    </div>
-                    <p className="text-sm text-[var(--secondary)] text-right">
-                      {formatDate(exp.startDate)} —{" "}
-                      {exp.endDate ? formatDate(exp.endDate) : "Present"}
-                      <br />
-                      <span className="italic">
-                        {calculateDuration(exp.startDate, exp.endDate)}
+                        </span>
+                      )}
+                      <span className="text-[var(--secondary)]">
+                        {" · "}
+                        {exp.location}
                       </span>
+                    </p>
+                    <p className="text-sm text-[var(--secondary)] mt-1">
+                      {formatDate(exp.startDate, "short")} –{" "}
+                      {exp.endDate
+                        ? formatDate(exp.endDate, "short")
+                        : "Present"}
+                      {" · "}
+                      {calculateDuration(exp.startDate, exp.endDate)}
+                    </p>
+                    <p className="text-xs text-[var(--secondary)] italic mt-1">
+                      {exp.about}
                     </p>
                   </div>
                   <ul className="space-y-2 list-disc list-outside ml-4 text-[var(--foreground)] opacity-90">
